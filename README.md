@@ -2,6 +2,9 @@
 
 Official implementation of **[LongMINT: Evaluating Memory under Multi-Target Interference in Long-Horizon Agent Systems](https://arxiv.org/abs/2605.18565)**.
 
+[Hyunji Lee](https://amy-hyunji.github.io/) | [Justin Chih-Yao Chen](https://dinobby.github.io/) | [Joykirat Singh](https://joykirat18.github.io/) | [Zaid Khan](https://zaidkhan.me/) | | [Elias Stengel-Eskin](https://esteng.github.io/) | [Mohit Bansal](https://www.cs.unc.edu/~mbansal/)
+
+
 <p align="center">
   <img src="assets/fig1.png" alt="Figure 1" width="600"/>
 </p>
