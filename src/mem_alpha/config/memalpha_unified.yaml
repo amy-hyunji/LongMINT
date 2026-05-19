@@ -1,0 +1,36 @@
+agent_name: "memalpha_unified"
+model_name: "YuWangX/Memalpha-4B"
+enable_thinking: false
+vllm: true
+tensor_parallel_size: 2
+thinking_budget: 1024
+max_new_tokens: 2048
+
+# Chunking convention for the unified datasets:
+#   - github / horizonbench / wiki: always one chunk per context entry
+#     (commit / dialogue turn / wiki revision). Not configurable.
+#   - babi: each context entry is a one-sentence fact; pack this many facts
+#     into a single memory-update chunk so each step sees a meaningful block.
+#     Matches the memagent / atommem runners' --babi-facts-per-chunk default.
+#     Set to 1 to fall back to the original "1 fact = 1 chunk" behavior.
+babi_facts_per_chunk: 15
+
+# Run a memory_server.py instance behind this URL — it talks to a separate
+# vLLM serving the answering model and exposes /batch_process for QA. main.py
+# auto-rewrites the tail to /agentic_process when run with --agentic_search.
+#
+# Launch order:
+#   vllm serve Qwen/Qwen3.6-35B-A3B --port 8001 ...
+#   python src/mem_alpha/memory_server.py --port 5000 \
+#       --server_url http://localhost:8001/v1 \
+#       --model_name Qwen/Qwen3.6-35B-A3B
+infer_with_full_memory: true
+external_model_url: http://127.0.0.1:5000/batch_process
+external_model_name: Qwen/Qwen3.6-35B-A3B
+api_key: EMPTY
+
+# Optional: point at a memalpha_vllm_wrapper.py to skip in-process vLLM loading
+# during memory build (the wrapper holds LLM(...) in a long-lived process so
+# we don't pay model-load cost per main.py invocation). Leave unset to let
+# main.py construct MemoryAgent locally.
+# memalpha_server_url: http://127.0.0.1:5001

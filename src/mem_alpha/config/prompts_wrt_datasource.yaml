@@ -1,0 +1,196 @@
+unified_prompt: "Remember the following content chunk by completing these steps:\n\n1. **Core Memory Update**: Maintain an understanding of the user, or a summary of what the user is reading, or a set of classification rules summarized from the classification examples (label 1: meaning; label 2: meaning, etc.). Keep updates brief (a few sentences maximum).\n\n2. **Memory Storage**:\n   - **Episodic Memory**: Record user actions, user's friends' actions and assistant actions with timestamps (format: \"At timestamp t, user did X\")\n   - **Semantic Memory**: Record key facts and information (format: \"John is User's 18-year-old friend\", \"Harry Potter author: J.K. Rowling\", \"Sample: xxx; Label: xxx\")\n\n<new_chunk>\n{context}\n</new_chunk>\n\n**Important**: Response limit is {max_new_tokens} tokens. Be concise and brief in all memory updates."
+
+squad:
+    query_prompt: null
+    including_core: true
+
+hotpotqa:
+    query_prompt: null
+    including_core: true
+
+booksum:
+    query_prompt: "Your core memory contains a comprehensive book summary. Use this information to fulfill the user's request."
+    including_core: true
+
+pubmed-rct:
+    query_prompt: "Your core memory is used to store the classification rules of the articles. Identify the meaning of each class and how the article is classified. Fulfill the user's request with the core memory.\n\nWhen answering questions, you should put the final prediction in the format of \\boxed{label}. Note that the label is a single number."
+    including_core: true
+
+ttl_train:
+    query_prompt: "Your core memory is used to store the classification rules of the articles. Identify the meaning of each class and how the article is classified. Your semantic memory likely includes example labels. Fulfill the user's request with the core memory.\n\nWhen answering questions, you should put the final prediction in the format of \\boxed{label}. Note that the label is a single number."
+    including_core: true
+
+perltqa:
+    query_prompt: null
+    including_core: true
+
+lme_train:
+    query_prompt: null
+    including_core: true
+
+accurate_retrieval:
+    query_prompt: null
+    including_core: true
+
+ruler_qa1_197K:
+    query_prompt: null
+    including_core: true
+
+ruler_qa2_421K:
+    query_prompt: null
+    including_core: true
+
+infbench_sum_eng_shots2:
+    query_prompt: "The book has been memorized in the memory. Answer the question as briefly as possible. Only output the answer with no other text."
+    including_core: true
+
+longmemeval_s*:
+    query_prompt: null
+    including_core: true
+
+long_range_understanding:
+    query_prompt: "Your core memory contains a comprehensive book summary. Use this information to fulfill the user's request."
+    including_core: true
+
+test_time_learning:
+    query_prompt: "Your core memory is used to store the classification rules of the articles. Identify the meaning of each class and how the article is classified. Your semantic memory likely includes example labels. Fulfill the user's request with the core memory.\n\nWhen answering questions, you should put the final prediction in the format of \\boxed{label}. Note that the label is a single number."
+    including_core: true
+
+conflict_resolution:
+    query_prompt: "Your core memory stores factual information provided throughout the conversation. Some of these facts may become outdated or contradicted by new information. When new evidence conflicts with previously stored memory, you must identify the contradiction and update your memory by selectively forgetting or overwriting the outdated information. Do not retain both conflicting facts.Your semantic memory may contain prior facts and examples. However, you must ensure that only the most recent and correct information is used when answering. When answering questions, rely on the updated memory after resolving conflicts. Ignore any outdated or contradictory information. Provide your final answer in the format \\boxed{answer}."
+    including_core: true
+
+LOCOMO:
+    query_prompt: "Your core memory stores long-term conversations, including facts about people, events, and their relationships over time. Identify relevant information from memory to answer the question. Your semantic memory may include general knowledge to help interpret the context. Fulfill the user's request using the core memory. When answering questions, put the final answer in the format of \\boxed{answer}."
+    including_core: true
+
+LongMemEval:
+    query_prompt: "Your core memory stores long-term conversations, including facts about people, events, and their relationships over time. Identify relevant information from memory to answer the question. Your semantic memory may include general knowledge to help interpret the context. Fulfill the user's request using the core memory. When answering questions, put the final answer in the format of \\boxed{answer}."
+    including_core: true
+
+icl_banking77_5900shot_balance:
+    query_prompt: "Your core memory is used to store the classification rules of the articles. Identify the meaning of each class and how the article is classified. Your semantic memory likely includes example labels. Fulfill the user's request with the core memory.\n\nWhen answering questions, you should put the final prediction in the format of \\boxed{label}. Note that the label is a single number."
+    including_core: true
+
+icl_clinic150_7050shot_balance:
+    query_prompt: "Your core memory is used to store the classification rules of the articles. Identify the meaning of each class and how the article is classified. Your semantic memory likely includes example labels. Fulfill the user's request with the core memory.\n\nWhen answering questions, you should put the final prediction in the format of \\boxed{label}. Note that the label is a single number."
+    including_core: true
+
+icl_nlu_8296shot_balance:
+    query_prompt: "Your core memory is used to store the classification rules of the articles. Identify the meaning of each class and how the article is classified. Your semantic memory likely includes example labels. Fulfill the user's request with the core memory.\n\nWhen answering questions, you should put the final prediction in the format of \\boxed{label}. Note that the label is a single number."
+    including_core: true
+
+icl_trec_coarse_6600shot_balance:
+    query_prompt: "Your core memory is used to store the classification rules of the articles. Identify the meaning of each class and how the article is classified. Fulfill the user's request with the core memory.\n\nWhen answering questions, you should put the final prediction in the format of \\boxed{label}. Note that the label is a single number."
+    including_core: true
+
+icl_trec_fine_6400shot_balance:
+    query_prompt: "Your core memory is used to store the classification rules of the articles. Identify the meaning of each class and how the article is classified. Fulfill the user's request with the core memory.\n\nWhen answering questions, you should put the final prediction in the format of \\boxed{label}. Note that the label is a single number."
+    including_core: true
+
+wiki_revision: &wiki_revision_prompt
+    query_prompt: "Your memory stores a chronological sequence of revisions of a Wikipedia article. Each revision is a JSON object with keys: revision_id, timestamp, user, user_id, wikitext. Use ONLY the information in your memory to answer. Answer with the exact value only — output a single short token or phrase, with NO explanation, NO full sentence, NO surrounding words, NO units or labels unless they appear in the gold value, and NO trailing punctuation. For example, if the answer is a year, output just the year (e.g., 1994); if it's a name, output just the name. If your memory contains no relevant information, answer \"NA\". Put the final answer inside \\boxed{answer}."
+    including_core: true
+
+wiki_revision_d0: *wiki_revision_prompt
+wiki_revision_d5: *wiki_revision_prompt
+wiki_revision_v2: *wiki_revision_prompt
+
+oaks_babi: &oaks_babi_prompt
+    query_prompt: "Your memory stores a sequence of atomic facts about people's locations and actions. Use ONLY the information in your memory to answer. If the memory contains no information relevant to the question, answer \"NA\". For location/person questions, answer with the exact name. For \"how many\" questions, answer with a single integer. Put the final answer inside \\boxed{answer}."
+    including_core: true
+
+oaks_babi_d1: *oaks_babi_prompt
+oaks_babi_d3: *oaks_babi_prompt
+oaks_babi_d5: *oaks_babi_prompt
+oaks_babi_k3: *oaks_babi_prompt
+oaks_babi_k3_d1: *oaks_babi_prompt
+oaks_babi_k3_d3: *oaks_babi_prompt
+oaks_babi_k3_d5: *oaks_babi_prompt
+oaks_babi_k5: *oaks_babi_prompt
+oaks_babi_k5_d1: *oaks_babi_prompt
+oaks_babi_k5_d3: *oaks_babi_prompt
+oaks_babi_k5_d5: *oaks_babi_prompt
+oaks_babi_k7: *oaks_babi_prompt
+oaks_babi_k7_d1: *oaks_babi_prompt
+oaks_babi_k7_d3: *oaks_babi_prompt
+oaks_babi_k7_d5: *oaks_babi_prompt
+
+oaks_babi_history: &oaks_babi_history_prompt
+    query_prompt: "Your memory stores a sequence of atomic facts about people's locations and actions, in chronological order. Use ONLY the information in your memory to answer. Questions may ask about the current state or about an earlier state N steps back. For location/person questions, answer with the exact name. If no relevant information is in memory, answer \"NA\". Put the final answer inside \\boxed{answer}."
+    including_core: true
+
+oaks_babi_history_d1: *oaks_babi_history_prompt
+oaks_babi_history_d3: *oaks_babi_history_prompt
+oaks_babi_history_d5: *oaks_babi_history_prompt
+oaks_babi_history_k3: *oaks_babi_history_prompt
+oaks_babi_history_k3_d1: *oaks_babi_history_prompt
+oaks_babi_history_k3_d3: *oaks_babi_history_prompt
+oaks_babi_history_k3_d5: *oaks_babi_history_prompt
+oaks_babi_history_k5: *oaks_babi_history_prompt
+oaks_babi_history_k5_d1: *oaks_babi_history_prompt
+oaks_babi_history_k5_d3: *oaks_babi_history_prompt
+oaks_babi_history_k5_d5: *oaks_babi_history_prompt
+oaks_babi_history_k7: *oaks_babi_history_prompt
+oaks_babi_history_k7_d1: *oaks_babi_history_prompt
+oaks_babi_history_k7_d3: *oaks_babi_history_prompt
+oaks_babi_history_k7_d5: *oaks_babi_history_prompt
+
+oaks_babi_datetime: &oaks_babi_datetime_prompt
+    query_prompt: "Your memory stores a sequence of timestamped facts about people's locations and actions. Use ONLY the information in your memory to answer. Questions ask about the state at a specific date and time. For location/person questions, answer with the exact name. If no relevant information is in memory, answer \"NA\". Put the final answer inside \\boxed{answer}."
+    including_core: true
+
+oaks_babi_datetime_d1: *oaks_babi_datetime_prompt
+oaks_babi_datetime_d3: *oaks_babi_datetime_prompt
+oaks_babi_datetime_d5: *oaks_babi_datetime_prompt
+oaks_babi_datetime_k3: *oaks_babi_datetime_prompt
+oaks_babi_datetime_k3_d1: *oaks_babi_datetime_prompt
+oaks_babi_datetime_k3_d3: *oaks_babi_datetime_prompt
+oaks_babi_datetime_k3_d5: *oaks_babi_datetime_prompt
+oaks_babi_datetime_k5: *oaks_babi_datetime_prompt
+oaks_babi_datetime_k5_d1: *oaks_babi_datetime_prompt
+oaks_babi_datetime_k5_d3: *oaks_babi_datetime_prompt
+oaks_babi_datetime_k5_d5: *oaks_babi_datetime_prompt
+oaks_babi_datetime_k7: *oaks_babi_datetime_prompt
+oaks_babi_datetime_k7_d1: *oaks_babi_datetime_prompt
+oaks_babi_datetime_k7_d3: *oaks_babi_datetime_prompt
+oaks_babi_datetime_k7_d5: *oaks_babi_datetime_prompt
+
+oaks_babi_bridge_comparison: &oaks_babi_bridge_comparison_prompt
+    query_prompt: "Your memory stores a sequence of atomic facts about people's locations and movements. Use ONLY the information in your memory to answer. Questions may require comparing or bridging multiple facts (e.g., \"who most recently moved from X to Y\", or comparing two people's actions). For location/person questions, answer with the exact name. If no relevant information is in memory, answer \"NA\". Put the final answer inside \\boxed{answer}."
+    including_core: true
+
+oaks_babi_bridge_comparison_d1: *oaks_babi_bridge_comparison_prompt
+oaks_babi_bridge_comparison_d3: *oaks_babi_bridge_comparison_prompt
+oaks_babi_bridge_comparison_d5: *oaks_babi_bridge_comparison_prompt
+
+oaks_babi_combined: &oaks_babi_combined_prompt
+    query_prompt: "Your memory stores a sequence of atomic facts about people's locations and movements (and possibly distractor sentences). Use ONLY the information in your memory to answer. Questions may be: (a) simple state queries (\"Where is X?\", \"Who last acquired Y?\"), (b) counting (\"How many unique people have visited Z?\"), (c) chronological ordering (return a comma-separated list in earliest-to-most-recent order), (d) bridge/comparison multi-hop, or (e) n-back history. Answer with the exact name, integer, or comma-separated list as appropriate. If no relevant information is in memory, answer \"NA\". Put the final answer inside \\boxed{answer}."
+    including_core: true
+
+oaks_babi_combined_d1: *oaks_babi_combined_prompt
+oaks_babi_combined_d3: *oaks_babi_combined_prompt
+oaks_babi_combined_d5: *oaks_babi_combined_prompt
+
+git_commits:
+    query_prompt: "Your memory stores a chronological sequence of git commits for a single repository. Each commit is a JSON object with keys: commit_sha, parent_sha, timestamp, user, user_id, comment, combined_patch. Use ONLY the information in your memory to answer. Answer with the exact value only — output a single short token, phrase, integer, or comma-separated list as appropriate, with NO explanation, NO full sentence, NO surrounding words, NO units or labels unless they appear in the gold value, and NO trailing punctuation. If your memory contains no relevant information, answer \"NA\". Put the final answer inside \\boxed{answer}."
+    including_core: true
+
+horizonbench:
+    query_prompt: "Your memory stores a chronological sequence of dialogue sessions between a user and an assistant. Each session is anchored by a timestamp and event id, and may include user/assistant turns plus preference-change events. Use ONLY the information in your memory to answer. Question types you may receive:\n  - simple/current state: answer with the user's current value for the requested attribute\n  - n-back (N preference-change events ago): answer with the value at that historical state; if N exceeds total events, answer \"NA\"\n  - counting: number of distinct value changes for an attribute (single integer)\n  - ordering: comma-separated list of distinct values from earliest to most recent\n  - multihop: bridge / comparison between two attributes\nAnswer with the exact enum value, integer, or comma-separated list as appropriate. If your memory has no relevant information, answer \"NA\". Put the final answer inside \\boxed{answer}."
+    including_core: true
+
+# data/unified/*.json sources (LongMint_dev port). Each chunk is a single
+# context string (optionally prefixed with a [timestamp] header). Prompts
+# mirror the existing source-family equivalents.
+babi:
+    query_prompt: "Your memory stores a sequence of atomic facts about people's locations and actions (each fact is a single short sentence, optionally with a timestamp header). Use ONLY the information in your memory to answer. For location/person questions, answer with the exact name. For \"how many\" questions, answer with a single integer. If the memory contains no relevant information, answer \"NA\". Put the final answer inside \\boxed{answer}."
+    including_core: true
+
+github:
+    query_prompt: "Your memory stores a chronological sequence of git commit contexts for a single repository (each chunk is the rendered content of one or more commits, optionally with a timestamp header). Use ONLY the information in your memory to answer. Answer with the exact value only — output a single short token, phrase, integer, or comma-separated list as appropriate, with NO explanation, NO full sentence, NO surrounding words, NO units or labels unless they appear in the gold value, and NO trailing punctuation. If your memory contains no relevant information, answer \"NA\". Put the final answer inside \\boxed{answer}."
+    including_core: true
+
+wiki:
+    query_prompt: "Your memory stores a chronological sequence of revisions of a Wikipedia article (each chunk is one revision's content, optionally with a timestamp header). Use ONLY the information in your memory to answer. Answer with the exact value only — output a single short token or phrase, with NO explanation, NO full sentence, NO surrounding words, NO units or labels unless they appear in the gold value, and NO trailing punctuation. For example, if the answer is a year, output just the year; if it's a name, output just the name. If your memory contains no relevant information, answer \"NA\". Put the final answer inside \\boxed{answer}."
+    including_core: true
