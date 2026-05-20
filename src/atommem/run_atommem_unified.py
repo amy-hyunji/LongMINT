@@ -23,8 +23,8 @@ EMBED_API_KEY = os.getenv("EMBED_API_KEY", "sk-123")
 
 DATASETS = ["babi", "github", "horizonbench", "wiki"]
 # Local override; leave unset (= None) to fall back to the HF dataset
-# (dinobby/LongMINT) the same way baserag/hipporag/memagent do.
-DEFAULT_DATA_ROOT = os.environ.get("LongMINT_DATA_ROOT")
+# (dinobby/MINTEval) the same way baserag/hipporag/memagent do.
+DEFAULT_DATA_ROOT = os.environ.get("MINTEval_DATA_ROOT")
 
 # Dataset-level instruction docs (per-dataset notes about data structure /
 # answer conventions). Lives under src/memagent/prompts so the same file can
@@ -722,8 +722,8 @@ def parse_args():
     p.add_argument("--data-root", type=str, default=DEFAULT_DATA_ROOT,
                    help="Local directory containing <dataset>.json files. "
                         "Leave unset (default) to load the split from the "
-                        "HF dataset dinobby/LongMINT, or set env "
-                        "LongMINT_DATA_ROOT to override.")
+                        "HF dataset dinobby/MINTEval, or set env "
+                        "MINTEval_DATA_ROOT to override.")
     p.add_argument("--output", type=str, default=None,
                    help="Output JSONL path. "
                         "Default: results_atommem_<dataset>.jsonl")

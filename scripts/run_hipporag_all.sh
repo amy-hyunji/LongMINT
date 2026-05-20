@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-# Run HippoRAG over all four LongMINT datasets sequentially.
+# Run HippoRAG over all four MINTEval datasets sequentially.
 # Assumes a vLLM (or OpenAI-compatible) server is already serving the LLM at $LLM_BASE_URL.
 #
-# Data source: by default each dataset is pulled from the `dinobby/LongMINT`
+# Data source: by default each dataset is pulled from the `dinobby/MINTEval`
 #
 # Usage:
 #   ./scripts/run_hipporag_all.sh                                # all 4, GPU 0
@@ -52,7 +52,7 @@ if [ -n "$DATA_PATH" ] && [ ! -f "$DATA_PATH" ]; then
 fi
 DATA_PATH_FLAG=""
 [ -n "$DATA_PATH" ] && DATA_PATH_FLAG="--data_path $DATA_PATH"
-DATA_DESC="${DATA_PATH:-hf:dinobby/LongMINT}"
+DATA_DESC="${DATA_PATH:-hf:dinobby/MINTEval}"
 
 IFS=',' read -r -a GPU_ARR <<< "$GPUS"
 N_GPUS=${#GPU_ARR[@]}

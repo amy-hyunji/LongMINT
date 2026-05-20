@@ -1,7 +1,7 @@
 # Mem-alpha (vendored fork)
 
 This directory contains a vendored fork of [Mem-alpha](https://github.com/wangyu-ustc/Mem-alpha)
-by Wang Yu et al., included here so that LongMINT can run the Mem-alpha
+by Wang Yu et al., included here so that MINTEval can run the Mem-alpha
 baseline out of the box.
 
 - Upstream repository: https://github.com/wangyu-ustc/Mem-alpha
@@ -11,19 +11,19 @@ baseline out of the box.
 
 At the time of this fork, the upstream repository did not include an explicit
 license file. All copyright in the vendored code therefore remains with the
-original Mem-alpha authors. The LongMINT project includes this code in good
+original Mem-alpha authors. The MINTEval project includes this code in good
 faith for research-reproducibility purposes. Users who wish to redistribute,
-modify, or use this code beyond running the LongMINT benchmark should refer to
+modify, or use this code beyond running the MINTEval benchmark should refer to
 the upstream repository and contact the original authors for permission.
 
-Modifications introduced by the LongMINT authors (integration glue, evaluation
+Modifications introduced by the MINTEval authors (integration glue, evaluation
 harness, dataset loaders) are released under the same license as the rest of
-LongMINT.
+MINTEval.
 
 ## Citation
 
 If you use this code, please cite the original Mem-alpha paper in addition to
-LongMINT:
+MINTEval:
 
 ```bibtex
 @misc{wang2025memalphalearningmemoryconstruction,

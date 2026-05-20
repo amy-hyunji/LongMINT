@@ -1,36 +1,17 @@
-# Python deps for tests_hipporag.py + tests_baserag.py + the shared _common /
-# openai_embedding_client modules. Mirrors what the vendored
-# `src/hipporag/` (vendored hipporag fork) imports plus the dense-retrieval
-# baseline stack. The vendored HippoRAG package ships its own setup.py but
-# pins pre-transformers-5 versions that no longer match this codebase's
-# runtime patches (see src/hipporag/embedding_model/NVEmbedV2.py for the
-# transformers>=5 shims) — these pins are the ones that actually work.
-#
-# Install:
-#   pip install -r rag_requirements.txt
-# vLLM (or any other OpenAI-compatible LLM/embedding endpoint) is NOT a
-# Python-side dep of the runners; serve it out-of-process and point the
-# scripts at it with --llm_base_url / --embedder_base_url.
-
-# --- Core runner deps (tests_hipporag.py / tests_baserag.py / _common.py) ---
-numpy>=1.26,<2
-torch==2.5.1                       # NV-Embed-v2 + Qwen3 chat-template fixes assume this build
-openai>=2.20,<3                    # 2.x chat completion API (resp.usage.model_dump)
-tqdm>=4.66
-datasets>=4.5,<5                   # _common.load_from_hf reads dinobby/LongMINT splits
-
-# --- BaseRAG retrieval ---
-sentence-transformers>=5.0,<6      # SentenceTransformer.encode_multi_process for multi-GPU fan-out
-
-# --- HippoRAG (vendored under src/hipporag/) module-import-time deps ---
-transformers>=5.0,<6               # local mods in src/hipporag/embedding_model/NVEmbedV2.py require >=5
-networkx>=3.4
-python-igraph>=0.11
-tiktoken>=0.7
-pydantic>=2.10
-tenacity>=8.5
+numpy
+torch                      
+openai                    
+tqdm
+datasets               
+sentence-transformers
+transformers            
+networkx
+python-igraph
+tiktoken
+pydantic
+tenacity
 einops
-scipy>=1.13                        # PPR / phrase-weight normalization
-litellm>=1.73                      # HippoRAG's internal LLM dispatch
-gritlm>=1.0                        # GritLM embedding backend (optional but imported eagerly)
-num2words>=0.5                     # used by src/hipporag/utils/eval_utils.py + qa_eval.py
+scipy                     
+litellm                      
+gritlm                       
+num2words                    

@@ -24,8 +24,8 @@ class ConversationCreator():
 
         if dataset in ('memalpha', 'unified', 'unified_babi', 'unified_github', 'unified_horizonbench', 'unified_wiki'):
             
-            LONGMINT_HF_REPO = os.getenv('LONGMINT_HF_REPO', 'dinobby/LongMINT')
-            LONGMINT_LOCAL_DIR = os.getenv('LONGMINT_LOCAL_DIR')
+            MINTEval_HF_REPO = os.getenv('MINTEval_HF_REPO', 'dinobby/MINTEval')
+            MINTEval_LOCAL_DIR = os.getenv('MINTEval_LOCAL_DIR')
 
             HF_SPLIT_MAP = {
                 'babi':         'state_tracking',
@@ -50,11 +50,11 @@ class ConversationCreator():
                 return v
 
             def _load_items(source):
-                if LONGMINT_LOCAL_DIR:
-                    p = os.path.join(LONGMINT_LOCAL_DIR, f'{source}.json')
+                if MINTEval_LOCAL_DIR:
+                    p = os.path.join(MINTEval_LOCAL_DIR, f'{source}.json')
                     with open(p) as f:
                         return json.load(f), f'local:{p}'
-                hf_ds = load_dataset(LONGMINT_HF_REPO, split=HF_SPLIT_MAP[source])
+                hf_ds = load_dataset(MINTEval_HF_REPO, split=HF_SPLIT_MAP[source])
                 items = []
                 for row in hf_ds:
                     qs = []
@@ -68,7 +68,7 @@ class ConversationCreator():
                         'questions': qs,
                         'metadata': _maybe_unstring(row.get('metadata')),
                     })
-                return items, f'hf:{LONGMINT_HF_REPO}#{HF_SPLIT_MAP[source]}'
+                return items, f'hf:{MINTEval_HF_REPO}#{HF_SPLIT_MAP[source]}'
 
             rows = []
             for source in sources:

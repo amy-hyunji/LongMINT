@@ -22,7 +22,7 @@
 #   OUTPUT_DIR            log + JSONL destination           (default: ./results/fullcontext)
 #   DATASETS              space-separated list to run       (default: "babi github horizonbench wiki")
 #   DATA_ROOT             local dir with <dataset>.json     (default: unset = pull from
-#                                                            dinobby/LongMINT on HF)
+#                                                            dinobby/MINTEval on HF)
 #   LIMIT                 first-N items (debug)             (default: unset = all)
 #   PYTHON                python interpreter                (default: python on PATH)
 #   EXTRA_ARGS            anything else forwarded to the runner
@@ -79,7 +79,7 @@ fi
 echo "QA      model : $QA_MODEL @ $URL"
 echo "output dir    : $OUTPUT_DIR"
 echo "datasets      : $DATASETS"
-echo "data source   : ${DATA_ROOT:-hf:dinobby/LongMINT}"
+echo "data source   : ${DATA_ROOT:-hf:dinobby/MINTEval}"
 echo "concurrency   : $CONCURRENCY"
 echo "sampling      : temperature=$TEMPERATURE  top_p=$TOP_P  max_new=$MAX_NEW"
 echo "vllm_max_len  : $VLLM_MAX_LEN   safety_margin: $SAFETY_MARGIN"

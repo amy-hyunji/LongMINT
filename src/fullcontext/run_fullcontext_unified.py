@@ -14,7 +14,7 @@ URL = os.getenv("URL", "http://localhost:8000/v1")
 API_KEY = os.getenv("API_KEY", "123-abc")
 
 DATASETS = ["babi", "github", "horizonbench", "wiki"]
-DEFAULT_DATA_ROOT = os.environ.get("LongMINT_DATA_ROOT")
+DEFAULT_DATA_ROOT = os.environ.get("MINTEval_DATA_ROOT")
 
 PROMPTS_DIR = Path(__file__).resolve().parent.parent / "memagent" / "prompts"
 
@@ -349,8 +349,8 @@ def parse_args():
     p.add_argument("--data-root", type=str, default=DEFAULT_DATA_ROOT,
                    help="Local directory containing <dataset>.json files. "
                         "Leave unset (default) to load the split from the "
-                        "HF dataset dinobby/LongMINT, or set env "
-                        "LongMINT_DATA_ROOT to override.")
+                        "HF dataset dinobby/MINTEval, or set env "
+                        "MINTEval_DATA_ROOT to override.")
     p.add_argument("--output", type=str, default=None,
                    help="Output JSONL path. Default: results_fullcontext_<dataset>.jsonl")
     p.add_argument("--limit", type=int, default=None,

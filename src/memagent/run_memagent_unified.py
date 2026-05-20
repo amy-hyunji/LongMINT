@@ -13,7 +13,7 @@ QA_API_KEY = os.getenv("QA_API_KEY", API_KEY)
 
 DATASETS = ["babi", "github", "horizonbench", "wiki"]
 
-DEFAULT_HF_REPO = "dinobby/LongMINT"
+DEFAULT_HF_REPO = "dinobby/MINTEval"
 HF_SPLIT_MAP = {
     "babi":         "state_tracking",
     "github":       "github_commits",
@@ -33,7 +33,7 @@ def _maybe_unstring(v):
     return v
 
 
-def load_longmint_items(dataset: str, *, hf_repo: str, local_dir: str | None):
+def load_MINTEval_items(dataset: str, *, hf_repo: str, local_dir: str | None):
     """Load one unified dataset's items.
 
     Priority:
@@ -313,7 +313,7 @@ async def process_item(session, item, dataset, *,
 
 
 async def amain(args):
-    items, data_src = load_longmint_items(
+    items, data_src = load_MINTEval_items(
         args.dataset, hf_repo=args.hf_repo, local_dir=args.data_root,
     )
     if args.limit is not None:

@@ -1,7 +1,7 @@
 # HippoRAG (vendored fork)
 
 This directory is a vendored fork of [HippoRAG](https://github.com/OSU-NLP-Group/HippoRAG)
-by the OSU NLP Group, included here so that LongMINT can run the HippoRAG and
+by the OSU NLP Group, included here so that MINTEval can run the HippoRAG and
 BaseRAG baselines out of the box.
 
 - Upstream repository: https://github.com/OSU-NLP-Group/HippoRAG
@@ -9,11 +9,11 @@ BaseRAG baselines out of the box.
 - Upstream license: MIT (see `LICENSE` in this directory)
 
 Code in this directory has been modified from upstream to integrate with
-LongMINT's evaluation. Modifications by the
-LongMINT authors are also released under the MIT License.
+MINTEval's evaluation. Modifications by the
+MINTEval authors are also released under the MIT License.
 
 If you use this code, please cite the original HippoRAG paper in addition to
-LongMINT.
+MINTEval.
 
 ```bibtex
 @misc{gutiérrez2025ragmemorynonparametriccontinual,

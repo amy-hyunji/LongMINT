@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-# Dense-retrieval baseline RAG over all four LongMINT datasets sequentially.
+# Dense-retrieval baseline RAG over all four MINTEval datasets sequentially.
 # Same prompt as run_hipporag_all.sh — the only axis that changes is retrieval.
 #
-# Data source: by default each dataset is pulled from the `dinobby/LongMINT`
+# Data source: by default each dataset is pulled from the `dinobby/MINTEval`
 #
 # Usage:
 #   ./scripts/run_baserag_all.sh                                            # all 4, top_k=5, GPU 0
@@ -55,7 +55,7 @@ if [ -n "$DATA_PATH" ] && [ ! -f "$DATA_PATH" ]; then
 fi
 DATA_PATH_FLAG=""
 [ -n "$DATA_PATH" ] && DATA_PATH_FLAG="--data_path $DATA_PATH"
-DATA_DESC="${DATA_PATH:-hf:dinobby/LongMINT}"
+DATA_DESC="${DATA_PATH:-hf:dinobby/MINTEval}"
 
 IFS=',' read -r -a GPU_ARR <<< "$GPUS"
 N_GPUS=${#GPU_ARR[@]}

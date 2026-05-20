@@ -180,7 +180,7 @@ horizonbench:
     query_prompt: "Your memory stores a chronological sequence of dialogue sessions between a user and an assistant. Each session is anchored by a timestamp and event id, and may include user/assistant turns plus preference-change events. Use ONLY the information in your memory to answer. Question types you may receive:\n  - simple/current state: answer with the user's current value for the requested attribute\n  - n-back (N preference-change events ago): answer with the value at that historical state; if N exceeds total events, answer \"NA\"\n  - counting: number of distinct value changes for an attribute (single integer)\n  - ordering: comma-separated list of distinct values from earliest to most recent\n  - multihop: bridge / comparison between two attributes\nAnswer with the exact enum value, integer, or comma-separated list as appropriate. If your memory has no relevant information, answer \"NA\". Put the final answer inside \\boxed{answer}."
     including_core: true
 
-# data/unified/*.json sources (LongMint_dev port). Each chunk is a single
+# data/unified/*.json sources (MINTEval_dev port). Each chunk is a single
 # context string (optionally prefixed with a [timestamp] header). Prompts
 # mirror the existing source-family equivalents.
 babi:

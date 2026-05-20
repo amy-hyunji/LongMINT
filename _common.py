@@ -188,7 +188,7 @@ def render_doc(ctx: dict, max_doc_chars: int) -> str:
     return doc
 
 
-HF_DATASET_ID = "dinobby/LongMINT"
+HF_DATASET_ID = "dinobby/MINTEval"
 HF_SPLIT_MAP = {
     "babi":         "state_tracking",
     "wiki":         "wiki_revisions",
@@ -255,7 +255,7 @@ def load_unified(path: str, max_doc_chars: int = 0):
 
 def load_from_hf(dataset: str, max_doc_chars: int = 0, *,
                  repo_id: str = HF_DATASET_ID):
-    """Load a split from the dinobby/LongMINT HF dataset (or any repo with
+    """Load a split from the dinobby/MINTEval HF dataset (or any repo with
     the same split-naming convention) and reshape into our in-memory schema.
 
     `dataset` is one of our short names (babi / wiki / github / horizonbench);
@@ -284,7 +284,7 @@ def load_raw_dataset(dataset: str, data_root: str | None, *,
 
     Source selection mirrors baserag/hipporag: when `data_root` is given,
     load `<data_root>/<dataset>.json`; otherwise pull the matching split
-    from the HF dataset (default `dinobby/LongMINT`). In both cases
+    from the HF dataset (default `dinobby/MINTEval`). In both cases
     `questions[].metadata` is normalized to a dict so callers indexing
     into the raw structure (atommem, fullcontext) don't need to care
     which source it came from.
@@ -314,7 +314,7 @@ def load_raw_dataset(dataset: str, data_root: str | None, *,
 def load_dataset_unified(dataset: str, data_path: str | None,
                          max_doc_chars: int = 0):
     """Single entry point: when `data_path` is given, load that JSON file;
-    otherwise pull the dataset from Hugging Face (`dinobby/LongMINT`). Returns
+    otherwise pull the dataset from Hugging Face (`dinobby/MINTEval`). Returns
     the same in-memory schema in both cases."""
     if data_path:
         return load_unified(data_path, max_doc_chars)

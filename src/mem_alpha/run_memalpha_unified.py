@@ -8,7 +8,7 @@ MEM_ALPHA_DIR = Path(__file__).resolve().parent
 if not MEM_ALPHA_DIR.is_dir():
     raise SystemExit(
         f"Expected mem_alpha scaffolding at {MEM_ALPHA_DIR}. "
-        "Run the LongMint_dev setup first."
+        "Run the MINTEval_dev setup first."
     )
 
 

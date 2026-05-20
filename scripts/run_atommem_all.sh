@@ -36,7 +36,7 @@
 #   OUTPUT_DIR            log + JSONL destination                 (default: ./results/atommem)
 #   DATASETS              space-separated list to run             (default: "babi github horizonbench wiki")
 #   DATA_ROOT             local directory with <dataset>.json     (default: unset = pull from
-#                                                                  dinobby/LongMINT on HF)
+#                                                                  dinobby/MINTEval on HF)
 #   LIMIT                 first-N items (debug)                   (default: unset = all)
 
 set -uo pipefail
@@ -90,7 +90,7 @@ echo "QA     model  : $QA_MODEL @ $QA_URL"
 echo "embed   model : $EMBED_MODEL @ $EMBED_URL"
 echo "output dir    : $OUTPUT_DIR"
 echo "datasets      : $DATASETS"
-echo "data source   : ${DATA_ROOT:-hf:dinobby/LongMINT}"
+echo "data source   : ${DATA_ROOT:-hf:dinobby/MINTEval}"
 echo "concurrency   : $CONCURRENCY   max_chunks: $MAX_CHUNKS   max_query_updates: $MAX_QUERY_UPDATES"
 echo "sampling      : temperature=$TEMPERATURE  top_p=$TOP_P  max_new=$MAX_NEW"
 echo "babi facts/chunk: $BABI_FACTS_PER_CHUNK"

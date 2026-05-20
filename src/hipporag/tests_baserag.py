@@ -40,7 +40,7 @@ _DTYPE_MAP = {
 
 def parse_args():
     p = argparse.ArgumentParser(
-        description="Dense-retrieval BaseRAG over a unified-format LongMINT dataset.")
+        description="Dense-retrieval BaseRAG over a unified-format MINTEval dataset.")
 
     # I/O
     p.add_argument("--dataset", required=True, choices=sorted(HF_SPLIT_MAP),
@@ -50,7 +50,7 @@ def parse_args():
     p.add_argument("--data_path", default=None,
                    help="Optional path to a local unified-format JSON file. "
                         "When omitted, the dataset is loaded from the "
-                        "dinobby/LongMINT Hugging Face dataset.")
+                        "dinobby/MINTEval Hugging Face dataset.")
     p.add_argument("--output_dir", default="outputs",
                    help="Base output directory. Final path is "
                         "<output_dir>/<dataset>/<llm_suffix>/<basename>.json.")
