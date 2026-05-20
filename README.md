@@ -1,6 +1,6 @@
-# LongMINT
+# MINTEval
 
-Official implementation of **[LongMINT: Evaluating Memory under Multi-Target Interference in Long-Horizon Agent Systems](https://arxiv.org/abs/2605.18565)**.
+Official implementation of **[MINTEval: Evaluating Memory under Multi-Target Interference in Long-Horizon Agent Systems](https://arxiv.org/abs/2605.18565)**.
 
 [Hyunji Lee](https://amy-hyunji.github.io/) | [Justin Chih-Yao Chen](https://dinobby.github.io/) | [Joykirat Singh](https://joykirat18.github.io/) | [Zaid Khan](https://zaidkhan.me/) | [Elias Stengel-Eskin](https://esteng.github.io/) | [Mohit Bansal](https://www.cs.unc.edu/~mbansal/)
 
@@ -13,7 +13,7 @@ Official implementation of **[LongMINT: Evaluating Memory under Multi-Target Int
 
 ## Overview
 
-LongMINT is a benchmark for evaluating memory-augmented agents in continuously updated environments where they must process long contexts, recover earlier information, and reason over many updates that create interference between old and new information.
+MINTEval is a benchmark for evaluating memory-augmented agents in continuously updated environments where they must process long contexts, recover earlier information, and reason over many updates that create interference between old and new information.
 
 ---
 
@@ -37,9 +37,9 @@ Some baselines maintain their own environments and dependencies. Please follow t
 
 ## Dataset
 
-The LongMINT dataset is available on Hugging Face:
+The MINTEval dataset is available on Hugging Face:
 
-👉 [dinobby/LongMINT](https://huggingface.co/datasets/dinobby/LongMINT)
+👉 [dinobby/MINTEval](https://huggingface.co/datasets/dinobby/MINTEval)
 
 ---
 
@@ -162,11 +162,11 @@ We thank the authors for releasing their code and resources.
 
 ## Citation
 
-If you find LongMINT useful, please cite our work:
+If you find MINTEval useful, please cite our work:
 
 ```bibtex
-@misc{lee2026longmintevaluatingmemorymultitarget,
-      title={LongMINT: Evaluating Memory under Multi-Target Interference in Long-Horizon Agent Systems}, 
+@misc{lee2026mintevalevaluatingmemorymultitarget,
+      title={MINTEval: Evaluating Memory under Multi-Target Interference in Long-Horizon Agent Systems}, 
       author={Hyunji Lee and Justin Chih-Yao Chen and Joykirat Singh and Zaid Khan and Elias Stengel-Eskin and Mohit Bansal},
       year={2026},
       eprint={2605.18565},
@@ -176,7 +176,7 @@ If you find LongMINT useful, please cite our work:
 }
 ```
 
-We also recommend citing the prior benchmark works and resources used in LongMINT:
+We also recommend citing the prior benchmark works and resources used in MINTEval:
 
 ```bibtex
 @article{weston2015aicompleteqa,
